@@ -49,29 +49,27 @@ function Nav() {
         })}
       </nav>
 
-      {/* Mobile Hamburger Icon */}
-      <div className="md:hidden z-50" onClick={() => setMenuOpen(!menuOpen)}>
-        <MdMenu className="text-white text-3xl cursor-pointer" />
-      </div>
+      {/* Mobile Menu with navRef */}
+      <div className="md:hidden z-50 relative" ref={navRef}>
+        <div onClick={() => setMenuOpen(!menuOpen)}>
+          <MdMenu className="text-white text-3xl cursor-pointer" />
+        </div>
 
-      {/* Mobile Dropdown */}
-      {menuOpen && (
-        <ul
-          ref={navRef}
-          className="absolute top-full right-4 mt-2 bg-gray-800 text-white rounded-lg p-4 w-40 flex flex-col gap-4 font-serif md:hidden"
-        >
-          {tabs.map(({ name, href }) => (
-            <Link
-              key={href}
-              href={href}
-              className={`hov-Text ${pathName === href ? "active" : ""}`}
-              onClick={() => setMenuOpen(false)} // close on selection
-            >
-              {name}
-            </Link>
-          ))}
-        </ul>
-      )}
+        {menuOpen && (
+          <ul className="absolute top-full right-0 mt-2 bg-gray-800 text-white rounded-lg p-4 w-40 flex flex-col gap-4 font-serif">
+            {tabs.map(({ name, href }) => (
+              <Link
+                key={href}
+                href={href}
+                className={`hov-Text ${pathName === href ? "active" : ""}`}
+                onClick={() => setMenuOpen(false)}
+              >
+                {name}
+              </Link>
+            ))}
+          </ul>
+        )}
+      </div>
     </header>
   );
 }
