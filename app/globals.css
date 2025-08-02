@@ -1,16 +1,10 @@
 @import "tailwindcss";
+@import 'react-toastify/dist/ReactToastify.css'
 
 :root {
   --background: #ffffff;
   --foreground: #2e2626;
 }
-
-/* @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-} */
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -23,122 +17,66 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-  overflow: hidden;
-  
+  overflow-x: hidden; /* Allow vertical scroll */
 }
-.mybtn{
+
+/* ===== Utility Classes You Should Keep ===== */
+
+.mybtn {
   cursor: pointer;
   background: linear-gradient(to left, rgb(24, 213, 46), rgb(216, 11, 192));
   border: none;
-}
-
-.gre-Text{
-  background: linear-gradient(to left, rgb(24, 213, 46), rgb(216, 11, 192));
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-}
-.gre-Text:active, .gre-Text:hover{
-  background: linear-gradient(to left, rgb(24, 213, 46), rgb(216, 11, 192));
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-}
-hov-Text{
   color: white;
+  transition: 0.3s ease;
 }
-.hov-Text:hover{
+
+.gre-Text {
   background: linear-gradient(to left, rgb(24, 213, 46), rgb(216, 11, 192));
   background-clip: text;
   -webkit-text-fill-color: transparent;
-
 }
 
-.hov-Text.active{
+.gre-Text:active,
+.gre-Text:hover {
   background: linear-gradient(to left, rgb(24, 213, 46), rgb(216, 11, 192));
   background-clip: text;
   -webkit-text-fill-color: transparent;
-
 }
-.mydiv:hover{
+
+.hov-Text {
+  color: white;
+  transition: 0.3s;
+}
+
+.hov-Text:hover,
+.hov-Text.active {
+  background: linear-gradient(to left, rgb(24, 213, 46), rgb(216, 11, 192));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Add shadow and slight lift on hover */
+.mydiv:hover {
   position: relative;
-  bottom: 2vh;
-  left:2vw;
-  box-shadow: 0px 6px 10px rgb(216, 11, 192);
- }
+  top: -15px;
+  left: 30px;
+  box-shadow: 0px 10px 20px rgb(216, 11, 192);
+  /* box-shadow: 0px 10px 20px rgb(11, 216, 38); */
+  transition: 0.3s ease;
+}
 
-.menu-icn{
+/* ===== Menu icon behavior for mobile ===== */
+.menu-icn {
   display: none;
-}
-@media (max-width:600px) {
-  .mmt{
-    width: 90vw;
-    display: flex;
-    flex-direction: column;
-    gap:2vh;
-    position: relative;
-    right: 10vw;
-  }
-  .chmmt{
-    border: 1px solid white;
-  }
-  .navbr{
-    display: none;
-  }
-  .menu-icn{
-    display: block;
-    padding: auto;
-    
-  }
-  .mwd{
-    width: 80%;
-    height: 25%;
-  }
-  .abDiv{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 90%;
-  }
-  .abh{
-    font-size: 5vh;
-    margin: 3vh;
-  }
-  .abf{
-    height: 30vh;
-    width: 300px;
-  }
-  .abi{
-    height: 30vh;
-    width: 300px;
-  }
-  .abt{
-    position: relative;
-    top:1vh;
-    left: 5vw;
-    width: 100%;
-    
-  }
-  .hdt{
-    height: 30vh;
-    width: 60vw;
-    position: relative;
-    left: 10vh;
-    bottom: 80vh;
-  }
-  .hdtc{
-    height: 98%;
-    width: 98%;
-  }
-  .hdo{
-    position: relative;
-    top:10vh;
-    width: 90vw;
-  }
-  .hdh{
-    font-size: 6vh;
-  }
+  margin-right: 2rem;
+  font-size: 1.8rem;
+  cursor: pointer;
 }
 
+/* Responsive styles */
+@media (max-width: 600px) {
+  .menu-icn {
+    display: block;
+  }
+}
 

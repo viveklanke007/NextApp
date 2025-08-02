@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-function footer() {
+function Footer() {
   return (
-    <div className='relative top-[45vh] h-[5vh] flex gap-2 justify-center items-center bg-black'>
-        <p>Thanks for visiting.</p>
-        <p>All Rights are reserved by Mr.Vivek</p>
-    </div>
-  )
+    <footer className="w-full h-auto py-4 text-center bg-black text-white">
+      <p className="text-sm">❤️❤️ Thanks for visiting ❤️❤️</p>
+      <p className="text-sm">All Rights reserved by Mr. Vivek</p>
+    </footer>
+  );
 }
 
-export default footer
+export default Footer;

@@ -1,73 +1,72 @@
+
 "use client";
 import "../app/globals.css";
 import React from "react";
-
 import Link from "next/link";
 import Image from "next/image";
 import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
-function hero() {
+function Hero() {
   return (
-    <div className="relative top-[15vh]">
-      <div className="hdo h-[60vh] w-[40vw] flex justify-center flex-col m-[3em] p-[1em]">
-        <h2 className=" hdh text-[4em] font-bold font-sans">
+    <div className="w-full flex flex-col-reverse md:flex-row items-center justify-center px-6 py-12 md:py-24 gap-10">
+      
+      {/* Left Section: Text */}
+      <div className="flex flex-col justify-center w-full md:w-1/2 max-w-xl">
+        <h2 className="text-4xl md:text-5xl font-bold font-sans leading-tight">
           Hi, I'm <span className="gre-Text">Vivek</span>
         </h2>
-        <h3 className="text-[2em] font-bold font-sans">Full-Stack Devoloper</h3>
-        <p className="text-lg mt-3">
-          I build exseptional digital experiences that are fast, accessable, And
-          visually appering. Let's create something amazing togather !!!
+        <h3 className="text-2xl md:text-3xl font-bold mt-2 font-sans">Full-Stack Developer</h3>
+        <p className="text-base md:text-lg mt-4 text-gray-600 dark:text-gray-300">
+          I build exceptional digital experiences that are fast, accessible, and
+          visually appealing. Let's create something amazing together !!!
         </p>
 
-        {/* <div className='flex gap-[5rem] flex-row w-[70%] mt-[3em]'>
-            <Hbtn name='Hire me'  className='mybtn'/>
-            <Hbtn name='View Work' />
-          </div> */}
-
-
-        <div className="flex gap-[5rem] flex-row w-[70%] mt-[3em]">
-          <button className="mybtn rounded-3xl w-[6em] h-[3em]"><Link href="/Contact">Hire Me</Link></button>
-          <button className=" gre-Text outline-1 rounded-3xl w-[6em] h-[3em]">
-            <Link prefetch={true} href='/Project'>VIew Work</Link>
-          </button>
+        {/* Buttons */}
+        <div className="flex flex-wrap gap-4 mt-6">
+          <Link href="/Contact">
+            <button className="mybtn text-white rounded-3xl px-5 py-2">Hire Me</button>
+          </Link>
+          <Link href="/Skills">
+            <button className="gre-Text border border-gray-500 rounded-3xl px-5 py-2">
+              View Work
+            </button>
+          </Link>
         </div>
-        <div className="h-[3em] w-[70%] flex flex-row gap-[2em] mt-[3em]">
-          <button className="">
-            <a href="/">
-              <FaGithub className="h-[2em] w-[2em]"></FaGithub>
-            </a>
-          </button>
-          <button className="">
-            <a href="/">
-              <FaLinkedin className="h-[2em] w-[2em]"></FaLinkedin>
-            </a>
-          </button>
-          <button className="">
-            <a href="/">
-              <FaTwitter className="h-[2em] w-[2em]"></FaTwitter>
-            </a>
-          </button>
-          <button className="">
-            <a href="/">
-              <FaInstagram className="h-[2em] w-[2em]"></FaInstagram>
-            </a>
-          </button>
+
+        {/* Social Icons */}
+        <div className="flex gap-5 mt-6">
+          <a href="https://www.github.com/viveklanke007" aria-label="GitHub">
+            <FaGithub className="h-6 w-6 hover:text-gray-500" />
+          </a>
+          <a href="https://www.linkedin.com/in/vivek-lanke-87a1a628a" aria-label="LinkedIn">
+            <FaLinkedin className="h-6 w-6 hover:text-blue-500" />
+          </a>
+          <a href="/NoApp" aria-label="Twitter">
+            <FaTwitter className="h-6 w-6 hover:text-sky-400" />
+          </a>
+          <a href="/NoApp" aria-label="Instagram">
+            <FaInstagram className="h-6 w-6 hover:text-pink-500" />
+          </a>
         </div>
       </div>
-      <div className="hdt flex justify-center items-center relative bottom-[70vh] left-[50vw] mybtn h-[60vh] w-[40vw] rounded-[100%]">
-        <div className="hdtc h-[99%] w-[99%] rounded-[100%] bg-white flex justify-center items-center">
-          <Image
-            src="..\photo.jpg"
-            height={420}
-            width={420}
-            alt="photo"
-            unoptimized
-            className="rounded-full"
-          ></Image>
+
+      {/* Right Section: Image */}
+      <div className="w-full md:w-1/2 flex justify-center">
+        <div className="relative h-64 w-64 md:h-[28rem] md:w-[28rem] rounded-full mybtn flex items-center justify-center">
+          <div className="h-[95%] w-[95%] rounded-full bg-white flex items-center justify-center">
+            <Image
+              src="/photo.jpg"
+              height={420}
+              width={420}
+              alt="photo"
+              unoptimized
+              className="rounded-full object-cover h-[90%] w-[90%]"
+            />
+          </div>
         </div>
       </div>
     </div>
   );
 }
 
-export default hero;
+export default Hero;

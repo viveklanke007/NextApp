@@ -1,49 +1,79 @@
+
 "use client";
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import "../app/globals.css";
 import { usePathname } from "next/navigation";
-import {MdMenu} from 'react-icons/md'
+import { MdMenu } from "react-icons/md";
 
-function nav() {
+function Nav() {
   const pathName = usePathname();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navRef = useRef(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (navRef.current && !navRef.current.contains(e.target)) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener("click", handleOutsideClick);
+    return () => document.removeEventListener("click", handleOutsideClick);
+  }, []);
+
   const tabs = [
     { name: "Home", href: "/" },
     { name: "About", href: "/About" },
     { name: "Skills", href: "/Skills" },
-   // { name: "Project", href: "/Project" },
     { name: "Contact", href: "/Contact" },
   ];
-  return (
-    <div className="flex justify-between items-center bg-black h-[3rem] w-[100vw] ">
-      <h2 className="gre-Text h-full w-[5em] ml-[1em] text-center font-black text-[2em] font-serif italic">
-        Portfolio
-      </h2>
-      <ol className=" navbr flex gap-[2em] relative right-[3em] font-serif">
-        {/* <Link className='hov-Text' href='/'>Home</Link>
-            <Link className='hov-Text' href='/About'>About</Link>
-            <Link className='hov-Text' href='/Skills'>Skills</Link>
-            <Link className='hov-Text' href='/Project'>Project</Link>
-            <Link className='hov-Text' href='/Contact'>Contact</Link> */}
 
+  return (
+    <header className="w-full bg-black text-white px-6 py-3 flex justify-between items-center shadow-md z-50 relative">
+      {/* Logo */}
+      <h2 className="gre-Text text-2xl font-black font-serif italic">Portfolio</h2>
+
+      {/* Desktop Menu */}
+      <nav className="hidden md:flex gap-8 font-serif">
         {tabs.map(({ name, href }) => {
           const isActive = pathName === href;
           return (
             <Link
               key={href}
               href={href}
-              prefetch={true}
               className={`hov-Text ${isActive ? "active" : ""}`}
             >
               {name}
             </Link>
           );
         })}
-        
-      </ol>
-      <MdMenu className="menu-icn" />
-    </div>
+      </nav>
+
+      {/* Mobile Hamburger Icon */}
+      <div className="md:hidden z-50" onClick={() => setMenuOpen(!menuOpen)}>
+        <MdMenu className="text-white text-3xl cursor-pointer" />
+      </div>
+
+      {/* Mobile Dropdown */}
+      {menuOpen && (
+        <ul
+          ref={navRef}
+          className="absolute top-full right-4 mt-2 bg-gray-800 text-white rounded-lg p-4 w-40 flex flex-col gap-4 font-serif md:hidden"
+        >
+          {tabs.map(({ name, href }) => (
+            <Link
+              key={href}
+              href={href}
+              className={`hov-Text ${pathName === href ? "active" : ""}`}
+              onClick={() => setMenuOpen(false)} // close on selection
+            >
+              {name}
+            </Link>
+          ))}
+        </ul>
+      )}
+    </header>
   );
 }
 
-export default nav;
+export default Nav;

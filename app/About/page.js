@@ -1,54 +1,70 @@
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-function page() {
+function AboutPage() {
   return (
-    <div className="abDiv">
-      <h2 className=" abh text-4xl m-[1em] text-center font-serif italic">
+    <div className="flex flex-col items-center justify-center px-4 py-8 min-h-screen">
+      {/* Heading */}
+      <h2 className="text-4xl sm:text-4xl md:text-5xl text-center font-serif italic mb-20">
         About <span className="gre-Text">Me</span>
       </h2>
-      <div className="abf h-[100vh] w-[400px] m-[3em]">
-        <Image
-          src="..\photo.jpg"
-          height={400}
-          width={400}
-          alt="photo"
-          unoptimized
-          className="abi rounded-[20%]"
-        ></Image>
-      </div>
-      <div className="abt relative bottom-[105vh] left-[40vw] h-[60vh] w-[50vw] p-[1em]">
-        <h4 className="text-[4vmax] m-[1vmax]">Vivek Lanke</h4>
-        <p className="m-[1vmax] text-gray-500">
-          I'm a Full Stack Web Devoloper with a degree BCA from D.Y.Patil
-          University Pune Ambi. I specialized in building responsive web
-          applications using technologies like react, nodeJs ans momgoDB.
-        </p>
-        <ul className="flex justify-between m-[1em]">
-          <div>
-            <li className="p-1">Role : Full-Stack Web Devoloper</li>
-            <li className="p-1">College : D.Y.Patil University</li>
-            <li className="p-1">Degree : BCA (Artificial Intelligence)</li>
+
+      {/* Content Grid */}
+      <div className="flex flex-col lg:flex-row items-center justify-center gap-10 w-full max-w-6xl">
+        {/* Image */}
+        <div className="h-auto w-[80vw] sm:w-[300px] md:w-[350px] mybtn rounded-[30%] flex justify-center items-center ">
+          <div className="w-[95%] h-[95%] ">
+            <Image
+            src="/photo.jpg"
+            height={370}
+            width={370}
+            alt="photo"
+            unoptimized
+            className="abi rounded-[30%] w-full h-auto"
+          />
           </div>
-          <div>
-            <li className="p-1">Blood G : O+</li>
-            <li className="p-1">Address : Talegoan Dhabhade, Pune</li>
+        </div>
+
+        {/* Text Content */}
+        <div className="w-full lg:w-1/2 p-4">
+          <h4 className="text-2xl sm:text-3xl md:text-4xl mb-4">Vivek Lanke</h4>
+          <p className="text-gray-500 mb-6 text-sm md:text-base">
+            I'm a Full Stack Web Developer with a BCA degree from D.Y. Patil University, Pune (Ambi). 
+            I specialize in building responsive web applications using technologies like React, Node.js, and MongoDB.
+          </p>
+
+          {/* Info Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm md:text-base mb-6">
+            <ul>
+              <li className="p-1">Role: Full-Stack Web Developer</li>
+              <li className="p-1">College: D.Y. Patil University</li>
+              <li className="p-1">Degree: BCA (AI)</li>
+            </ul>
+            <ul>
+              <li className="p-1">Blood Group: O+</li>
+              <li className="p-1">Address: Talegaon Dabhade, Pune</li>
+            </ul>
           </div>
-        </ul>
-        <div className="flex gap-[5rem] flex-row w-[70%] mt-[3em]">
-          <button className="mybtn rounded-3xl w-[8em] h-[3em]">
-            <Link href="../resume.png" download={true}>
-              Download CV
+
+          {/* Buttons */}
+          <div className="flex flex-wrap gap-6">
+            <Link href="/resume.png" download>
+              <button className="mybtn rounded-3xl px-5 py-2 text-white">
+                Download CV
+              </button>
             </Link>
-          </button>
-          <button className=" gre-Text outline-1 rounded-3xl w-[8em] h-[3em]">
-            <Link href="/Skills">View work</Link>
-          </button>
+            <Link prefetch={true} href="/Skills">
+              <button className="gre-Text border border-gray-500 rounded-3xl px-5 py-2">
+                View Work
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
   );
 }
 
-export default page;
+export default AboutPage;

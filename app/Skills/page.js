@@ -1,66 +1,52 @@
-"use client";
+
 import React from "react";
-import { FaCode } from "react-icons/fa";
-import { FaDatabase } from "react-icons/fa";
+import { FaCode, FaDatabase } from "react-icons/fa";
 import { TbBinaryTree } from "react-icons/tb";
-import Footer from "@/components/footer";
 
-function page() {
+function SkillsPage() {
   return (
-    // <div className="flex flex-col justify-center">
-    //   <h2 className="text-[5vw] text-center italic m-[1em]">
-    //     My <span className="gre-Text">Skills</span>
-    //   </h2>
-    //   <div className="mmt flex h-auto max-w-[90vw] justify-between relative left-[10vh] flex-wrap">
-    //     <div className="chmmt rounded-[1.5em] h-auto w-[90%]  p-[1em] mydiv">
-    //       <FaCode className="h-[2em] w-[2em] my-[1em]"></FaCode>
-    //       <h3 className="text-[2em] font-bold">FrontEnd Devolopment</h3>
-    //       <p className="text-[1em] text-gray-500 mt-1">React, Html, Css, Vue, Js, Tailwind, NextJs</p>
-    //     </div>
-    //     <div className="chmmt rounded-2xl h-auto w-auto px-[2em] p-[1em] mydiv">
-    //       <FaDatabase className="h-[2em] w-[2em] my-[1em]"></FaDatabase>
-    //       <h3 className="text-[2em] font-bold">BackEnd Devolopment</h3>
-    //       <p className="text-[1em] text-gray-500 mt-1">NodeJs, Express, NextJs, MongoDB, MySQL, SQL</p>
-    //     </div>
-    //     <div className=" chmmt rounded-2xl h-auto w-auto  p-[1em] mydiv">
-    //       <TbBinaryTree className="h-[2em] w-[2em] my-[1em]"></TbBinaryTree>
-    //       <h3 className="text-[2em] font-bold">Data Structures</h3>
-    //       <p className="text-[1em] text-gray-500 mt-1">Array, String, Linked-List, Trees, Graphs, Hashing</p>
-    //     </div>
-    //   </div>
-    //   <Footer></Footer>
-    // </div>
-
-    <div className="flex justify-center items-center flex-col h-[80vh] ">
-      <h2 className="text-[4vmax] italic" >
+    <div className="flex justify-center items-center flex-col min-h-screen px-4 pt-8">
+      {/* Heading */}
+      <h2 className="text-[8vw] sm:text-[5vw] md:text-[3vw] italic text-center mb-10 md:mb-20">
         My <span className="gre-Text">Skills</span>
       </h2>
-      <div className="flex justify-center items-center w-[90vw] h-[70vh] flex-wrap">
-        <div className="mwd mydiv w-[25%] h-auto p-[3vmax] rounded-[3vmax] m-[3vmax]">
-          <FaCode className="h-[3vmax] w-[3vmax]"></FaCode>
-          <h3 className="font-bold text-[3vmax]">FrontEnd Devolopment</h3>
-          <p className="text-gray-500 text-[1vmax]">
+
+      {/* Skill Cards */}
+      <div className=" flex flex-wrap justify-center items-center w-full max-w-[1200px] gap-8">
+        {/* Frontend */}
+        <div className="mwd mydiv w-[80vw] sm:w-[45vw] md:w-[30%] p-[3vmax] rounded-[3vmax] text-center">
+          <FaCode className="h-[3vmax] w-[3vmax] mx-auto mb-2" />
+          <h3 className="font-bold text-[4vw] md:text-[1.5vw]">FrontEnd Development</h3>
+          <p className="text-gray-500 text-[3vw] md:text-[0.9vw]">
             React, Html, Css, Vue, Js, Tailwind, NextJs
           </p>
         </div>
-        <div className=" mwd mydiv w-[25%] h-auto p-[3vmax]  rounded-[3vmax] m-[3vmax]">
-          <FaDatabase className="h-[3vmax] w-[3vmax]"></FaDatabase>
-          <h3 className="font-bold text-[3vmax]">BackEnd Devolopment</h3>
-          <p className="text-gray-500 text-[1vmax]">
+
+        {/* Backend */}
+        <div className="mwd mydiv w-[80vw] sm:w-[45vw] md:w-[30%] p-[3vmax] rounded-[3vmax] text-center">
+          <FaDatabase className="h-[3vmax] w-[3vmax] mx-auto mb-2" />
+          <h3 className="font-bold text-[4vw] md:text-[1.5vw]">BackEnd Development</h3>
+          <p className="text-gray-500 text-[3vw] md:text-[0.9vw]">
             NodeJs, Express, NextJs, MongoDB, MySQL, SQL
           </p>
         </div>
-        <div className=" mwd w-[25%] mydiv h-auto p-[3vmax] rounded-[3vmax] m-[3vmax]">
-          <TbBinaryTree className="h-[3vmax] w-[3vmax]"></TbBinaryTree>
-          <h3 className="font-bold text-[3vmax]">Data Structures</h3>
-          <p className="text-gray-500 text-[1vmax]">
+
+        {/* DSA */}
+        <div className="mwd mydiv w-[80vw] sm:w-[45vw] md:w-[30%] p-[3vmax] rounded-[3vmax] text-center">
+          <TbBinaryTree className="h-[3vmax] w-[3vmax] mx-auto mb-2" />
+          <h3 className="font-bold text-[4vw] md:text-[1.5vw]">Data Structures</h3>
+          <p className="text-gray-500 text-[3vw] md:text-[0.9vw]">
             Array, String, Linked-List, Trees, Graphs, Hashing
           </p>
         </div>
       </div>
-      <Footer></Footer>
+
+      {/* Footer */}
+      <div className="mt-16 w-full">
+        
+      </div>
     </div>
   );
 }
 
-export default page;
+export default SkillsPage;
